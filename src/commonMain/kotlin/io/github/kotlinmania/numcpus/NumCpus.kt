@@ -1,4 +1,3 @@
-// port-lint: source lib.rs
 package io.github.kotlinmania.numcpus
 
 import io.github.kotlinmania.libc.unix.bsd.apple._SC_NPROCESSORS_CONF
@@ -40,9 +39,4 @@ internal fun getNumCpus(): Int {
     } else {
         cpus.toInt()
     }
-}
-
-public object numCpus {
-    public fun get(): Int = io.github.kotlinmania.numcpus.get()
-    public fun getPhysical(): Int = io.github.kotlinmania.numcpus.getPhysical()
 }
