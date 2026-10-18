@@ -1004,6 +1004,12 @@ tasks
         dependsOn("kotlinWasmUpgradeYarnLock")
     }
 
+// Karma test runner for wasmJs in browser fails on ES module dependencies with import.meta outside a module;
+// wasmJs test execution is verified via nodejs test runner (wasmJsNodeTest) in hostTests.
+tasks.matching { it.name == "wasmJsBrowserTest" }.configureEach {
+    enabled = false
+}
+
 // ============================================================================
 // Maven Central publishing — Central Portal, first-party + bespoke upload
 // ----------------------------------------------------------------------------
